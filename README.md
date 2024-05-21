@@ -20,3 +20,10 @@ This is the 'main' class which runs the game by using the start() method from HC
 
 RandomWordsUtils:
 This class contains the predefined words and the generate random word method. 
+
+The 4 Pillars of OOP in this project. 
+
+Encapsulation: Each class has its own responsibilities and private attributes which can then be accessed through public methods if needed.
+Inheritance is not used in this project as there was no requirement for it.
+Polymorphism has not been used but could be implemented in the future for different game levels
+Abstraction has been used to keep complex details such as the predefined word lists hidden
