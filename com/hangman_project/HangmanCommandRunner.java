@@ -77,9 +77,9 @@ public class HangmanCommandRunner {
             }
 
             if (hiddenWord.equals(randomWord)) {
-                System.out.println("Amazing! You guessed the word " + randomWord);
+                System.out.println("Amazing! You guessed the word " + randomWord.toUpperCase());
             } else if (livesLeft == 0) {
-                System.out.println("OH NO! You've been hanged! The word was: " + randomWord);
+                System.out.println("OH NO! You've been hanged! The word was: " + randomWord.toUpperCase());
             }
         }
 
@@ -124,7 +124,7 @@ public class HangmanCommandRunner {
 
         //method to reset game
     private void resetGame(){
-        this.randomWord = randomWord.toLowerCase();
+        this.randomWord = RandomWordsUtils.getRandomWord().toLowerCase();
         this.hiddenWord = GuessHandler.hideLetters(randomWord);
         this.livesLeft = 7;
         this.guessedLetters.clear();
