@@ -17,8 +17,7 @@ public class GuessHandler {
                 hiddenWordsArray[i] = guessedLetter;
             }
         }
-        String updatedHiddenWord = new String(hiddenWordsArray);
-        return updatedHiddenWord;
+        return new String(hiddenWordsArray);
     }
 
 }

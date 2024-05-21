@@ -5,41 +5,14 @@ import java.util.Scanner;
 
 public class HangmanCommandRunner {
 
-    public static final String QUIT = "quit";
 
     //variables to store input
-    private Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner = new Scanner(System.in); //reads player input
     private String randomWord;
     private String hiddenWord;
     private int livesLeft;
     private List<Character> guessedLetters = new ArrayList<>();
 
-    //getters and setters
-
-
-    public String getRandomWord() {
-        return randomWord;
-    }
-
-    public void setRandomWord(String randomWord) {
-        this.randomWord = randomWord;
-    }
-
-    public String getHiddenWord() {
-        return hiddenWord;
-    }
-
-    public void setHiddenWord(String hiddenWord) {
-        this.hiddenWord = hiddenWord;
-    }
-
-    public int getLivesLeft() {
-        return livesLeft;
-    }
-
-    public void setLivesLeft(int livesLeft) {
-        this.livesLeft = livesLeft;
-    }
 
     //constructor
     public HangmanCommandRunner(String randomWord) {
@@ -48,6 +21,7 @@ public class HangmanCommandRunner {
         this.livesLeft = 7;
     }
 
+    //Game loop
     //methods
     public String start() {
         System.out.println("Welcome to my Hangman game!");
@@ -64,10 +38,12 @@ public class HangmanCommandRunner {
             if(guessedLetters.contains(guessedLetter)){
                 System.out.println("Whoops, you have already guessed that letter, be careful!");
                 continue;
+            } else if (!Character.isLetter(guessedLetter)) {
+                System.out.println("Please only enter a letter: ");
+                continue;
             }
 
             guessedLetters.add(guessedLetter);
-
 
             if (randomWord.contains(guess)) {
                 hiddenWord = GuessHandler.revealLetters(randomWord, hiddenWord, guess);
@@ -82,8 +58,8 @@ public class HangmanCommandRunner {
             } else if (livesLeft == 0) {
                 System.out.println("OH NO! You've been hanged! The word was: " + randomWord.toUpperCase());
             }
-        }
 
+        }
 
         //Play again
         String playerChoice = readPlayersChoice("Would you like to play again? (Type 'yes' or 'no')");
