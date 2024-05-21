@@ -5,7 +5,7 @@ public class HangmanGame {
         //variables
         String randomWord = RandomWordsUtils.getRandomWord();
         String hiddenRandomWord = GuessHandler.hideLetters(randomWord);
-        System.out.println("Your Word: " + hiddenRandomWord);
+        System.out.println("Your Word: " + hiddenRandomWord + " letters: " + randomWord.length());
     }
 }
 

@@ -6,6 +6,8 @@ import java.util.List;
 public class RandomWordsUtils {
     private static List<String> words = new ArrayList<>();
 
+    //need a constructor that will handle what happens if no words left
+
     static {
         words.add("Apple");
         words.add("Boat");

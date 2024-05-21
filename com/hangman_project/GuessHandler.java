@@ -6,5 +6,9 @@ public class GuessHandler {
     public static String hideLetters(String word){
         return word.replaceAll("[a-zA-Z]", "_");
     }
+//method for revealing letters
+    public static String revealLetters(){
+
+    }
 
 }
