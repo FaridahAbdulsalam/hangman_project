@@ -43,6 +43,7 @@ public class HangmanCommandRunner {
                 continue;
             }
 
+
             guessedLetters.add(guessedLetter);
 
             if (randomWord.contains(guess)) {
