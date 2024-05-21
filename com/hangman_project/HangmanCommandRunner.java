@@ -1,4 +1,6 @@
 package com.hangman_project;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class HangmanCommandRunner {
@@ -10,6 +12,7 @@ public class HangmanCommandRunner {
     private String randomWord;
     private String hiddenWord;
     private int livesLeft;
+    private List<Character> guessedLetters = new ArrayList<>();
 
     //getters and setters
 
@@ -52,9 +55,18 @@ public class HangmanCommandRunner {
         while (livesLeft > 0 && !hiddenWord.equals(randomWord)) {
             System.out.println("Lives Left: " + livesLeft);
             System.out.println("Your Word: " + hiddenWord + " is " + randomWord.length() + " letters long.");
+            System.out.println("Guessed Letters: " + guessedLetters);//shows empty array on start
             System.out.println("Please enter a letter to begin guessing: ");
-            String guess = scanner.nextLine().toLowerCase();
 
+            String guess = scanner.nextLine().toLowerCase();
+            char guessedLetter = guess.charAt(0);
+
+            if(guessedLetters.contains(guessedLetter)){
+                System.out.println("Whoops, you have already guessed that letter, be careful!");
+                continue;
+            }
+
+            guessedLetters.add(guessedLetter);
 
             if (randomWord.contains(guess)) {
                 hiddenWord = GuessHandler.revealLetters(randomWord, hiddenWord, guess);
@@ -115,6 +127,7 @@ public class HangmanCommandRunner {
         this.randomWord = randomWord.toLowerCase();
         this.hiddenWord = GuessHandler.hideLetters(randomWord);
         this.livesLeft = 7;
+        this.guessedLetters.clear();
     }
 
 }
