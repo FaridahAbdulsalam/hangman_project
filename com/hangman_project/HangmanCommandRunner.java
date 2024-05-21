@@ -68,6 +68,7 @@ public class HangmanCommandRunner {
 
             guessedLetters.add(guessedLetter);
 
+
             if (randomWord.contains(guess)) {
                 hiddenWord = GuessHandler.revealLetters(randomWord, hiddenWord, guess);
                 System.out.println("Well done, keep going!" + hiddenWord);
